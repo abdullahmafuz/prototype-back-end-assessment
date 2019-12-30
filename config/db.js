@@ -6,37 +6,40 @@ const db=config.get('mongoURI');
 
 const dbAPI=config.get('mongoURIapi');
 
+const userSchema=require('../models/User');
+
+
+
 
 //connection for custom db of user ,etc 
 
-const connectDB = async ()=>{
+
     try{
 
-        await mongoose.connect(db,{ useUnifiedTopology: true ,useNewUrlParser: true ,useCreateIndex:true});
-
-        console.log("prototype database database is connected .... ")
+        var conn1=  mongoose.createConnection(db,{ useUnifiedTopology: true ,useNewUrlParser: true ,useCreateIndex:true})
+        console.log("prototype database database is connected ....a ")
 
     }catch(err){
 
-    console.error(err.message);
+        console.error(err.message);
+    
+        // Exit process with failure
+    
+        process.exit(1);
+    
+        }    
 
-    // Exit process with failure
-
-    process.exit(1);
-
-    }
-}
+        
 
 //connection for Starwars api database
 
-const connectDBapi = async ()=>{
-    try{
 
-        await mongoose.connect(dbAPI,{ useUnifiedTopology: true ,useNewUrlParser: true,useCreateIndex:true });
+try{
 
-        console.log("Starwars api database is connected .... ")
+    var conn2=  mongoose.createConnection(dbAPI,{ useUnifiedTopology: true ,useNewUrlParser: true,useCreateIndex:true });
+    console.log("prototype database database is connected ....b ")
 
-    }catch(err){
+}catch(err){
 
     console.error(err.message);
 
@@ -44,11 +47,15 @@ const connectDBapi = async ()=>{
 
     process.exit(1);
 
-    }
-}
+    }    
 
+
+
+ 
+   
+const User= conn1.model('User', userSchema);
 
 module.exports = {
-    connectDB,
-    connectDBapi
-};
+    User,
+    conn2
+}

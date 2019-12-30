@@ -4,13 +4,19 @@ const router =express.Router();
 
 const bcrypt =require('bcryptjs');
 
+const jwt =require('jsonwebtoken');
+
 const {check,validationResult}=require('express-validator');
 
-const DB=require('../../config/db');
+const config=require('config');
 
-DB.connectDB();
 
-const User = require('../../models/User');
+
+
+
+const NewUser=require('../../config/db')
+
+const User =NewUser.User;
 
 
 // @route   POST api/users
@@ -37,7 +43,8 @@ router.post('/',[
     const {name,email,password}=req.body;
    
     try{
-
+       
+        
     // see user exist
 
         let user=await User.findOne({email});
@@ -69,7 +76,27 @@ router.post('/',[
 
     //return JWTtoken
 
-    res.send("users Created ..")
+    const payload ={
+        user:{
+
+            id:user.id
+        } 
+    }
+
+    jwt.sign(
+        payload,config.get('jwtSecret'),
+        {expiresIn: 360000},
+        (err,token)=>{
+            if(err) throw err;
+
+            res.json({token})
+
+        }
+        
+        );
+
+
+    
 
 
     }catch(err){

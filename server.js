@@ -1,6 +1,6 @@
 const express =require('express');
 
-
+const DB=require('./config/db');
 
 
 const cors = require('cors')
@@ -8,7 +8,9 @@ const cors = require('cors')
 const app=express();
 
 
-//connet DB
+
+
+
 
 
 
@@ -26,6 +28,8 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/api/users',require('./router/api/user'));
+
+app.use('/api/auth',require('./router/api/auth'))
 
 //Port allocation
 const PORT=process.env.PORT || 5000 ;
