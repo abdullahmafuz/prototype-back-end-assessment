@@ -1,5 +1,5 @@
 {
     "mongoURIapi":"mongodb://candidate:PrototypeRocks123654@ds345028.mlab.com:45028/star-wars",
     "jwtSecret":"manipalstudent123456",
-    "mongoURI":"mongodb+srv://abdullah1234:abdullah1234@prototype-swija.mongodb.net/test?retryWrites=true&w=majoritys"
+    "mongoURI":"mongodb+srv://abdullah1234:abdullah1234@prototype-swija.mongodb.net/proto?retryWrites=true"
 }

@@ -12,7 +12,7 @@ const dbAPI=config.get('mongoURIapi');
 const connectDB = async ()=>{
     try{
 
-        await mongoose.connect(db,{ useUnifiedTopology: true ,useNewUrlParser: true});
+        await mongoose.connect(db,{ useUnifiedTopology: true ,useNewUrlParser: true ,useCreateIndex:true});
 
         console.log("prototype database database is connected .... ")
 
@@ -32,7 +32,7 @@ const connectDB = async ()=>{
 const connectDBapi = async ()=>{
     try{
 
-        await mongoose.connect(dbAPI,{ useUnifiedTopology: true ,useNewUrlParser: true });
+        await mongoose.connect(dbAPI,{ useUnifiedTopology: true ,useNewUrlParser: true,useCreateIndex:true });
 
         console.log("Starwars api database is connected .... ")
 

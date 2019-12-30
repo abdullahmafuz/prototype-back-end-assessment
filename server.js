@@ -1,6 +1,6 @@
 const express =require('express');
 
-const DB=require('./config/db');
+
 
 
 const cors = require('cors')
@@ -10,8 +10,9 @@ const app=express();
 
 //connet DB
 
-DB.connectDB();
-DB.connectDBapi();
+
+
+//INit Middleware
 
 app.use(express.json({ extended:false }));
 
