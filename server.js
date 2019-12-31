@@ -31,6 +31,9 @@ app.use('/api/users',require('./router/api/user'));
 
 app.use('/api/auth',require('./router/api/auth'))
 
+app.use('/api/starwar',require('./router/api/starwar'))
+
+
 //Port allocation
 const PORT=process.env.PORT || 5000 ;
 app.listen(PORT,()=>{

@@ -16,9 +16,9 @@ const DB=require('../../config/db');
 
 
 
-const UserConn = require('../../config/db');
 
-const User=UserConn.User;
+
+const User=DB.User;
 
 
 
