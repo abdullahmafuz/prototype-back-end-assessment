@@ -4,6 +4,7 @@ const router =express.Router();
 
 const DB=require('../../config/db');
 
+const auth=require('../../middleware/auth');
 
 const api=DB.conn2;
 
@@ -15,10 +16,15 @@ const api=DB.conn2;
 
 //task1
 
+// @route   POST api/task1
+
+//@desc     Which of all Star Wars movies has the longest opening crawl (counted by number of characters
+
+//@access    Private
 
 
 
-router.get('/', async(req,res)=>{
+router.get('/',auth,async(req,res)=>{
     
    // fetching films  data from db
     

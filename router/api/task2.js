@@ -4,6 +4,7 @@ const router =express.Router();
 
 const DB=require('../../config/db');
 
+const auth=require('../../middleware/auth');
 
 const api=DB.conn2;
 
@@ -16,9 +17,15 @@ const api=DB.conn2;
 
 
 
+// @route   POST api/task2
+
+//@desc     What character (person) appeared in most of the Star Wars films ?
+
+//@access    Private
 
 
-router.get('/', async(req,res)=>{
+
+router.get('/',auth,async(req,res)=>{
 
 
  

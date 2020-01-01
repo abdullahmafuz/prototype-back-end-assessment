@@ -5,6 +5,7 @@ const router =express.Router();
 const DB=require('../../config/db');
 
 
+const auth=require('../../middleware/auth');
 const api=DB.conn2;
 
 
@@ -12,7 +13,19 @@ const api=DB.conn2;
 
 
 
- router.get('/', async(req,res)=>{
+
+//task4
+
+// @route   POST api/task4
+
+//@desc     What planet in Star Wars universe provided largest number of vehicle pilots ?
+
+//@access    Private
+
+
+
+
+ router.get('/',auth,async(req,res)=>{
 
     try{
 

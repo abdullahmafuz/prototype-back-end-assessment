@@ -5,6 +5,7 @@ const router =express.Router();
 const DB=require('../../config/db');
 
 
+const auth=require('../../middleware/auth');
 const api=DB.conn2;
 
 
@@ -13,6 +14,11 @@ const api=DB.conn2;
 
 //task3
 
+// @route   POST api/task3
+
+//@desc     What species (i.e. characters that belong to certain species) appeared in the most number of Star Wars films ?
+
+//@access    Private
 
 
 
@@ -21,7 +27,7 @@ const api=DB.conn2;
 
 
 
-router.get('/', async(req,res)=>{
+router.get('/',auth,async(req,res)=>{
     
    
      
