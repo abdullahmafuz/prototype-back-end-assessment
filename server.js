@@ -29,9 +29,17 @@ app.get('/',(req,res)=>{
 
 app.use('/api/users',require('./router/api/user'));
 
-app.use('/api/auth',require('./router/api/auth'))
+app.use('/api/auth',require('./router/api/auth'));
 
-app.use('/api/starwar',require('./router/api/starwar'))
+
+
+app.use('/api/task1',require('./router/api/task1'));
+
+app.use('/api/task2',require('./router/api/task2'));
+
+app.use('/api/task3',require('./router/api/task3'));
+
+app.use('/api/task4',require('./router/api/task4'));
 
 
 //Port allocation
