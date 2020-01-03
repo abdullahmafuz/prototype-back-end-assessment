@@ -24,7 +24,7 @@ app.use(cors());
 // Define Routes
 
 app.get('/',(req,res)=>{
-    res.send('APi is Running !!!');
+    res.send('StarWars APi is Running !!!');
 })
 
 app.use('/api/users',require('./router/api/user'));
